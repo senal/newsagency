@@ -1,0 +1,28 @@
+name: NewsAgency - Lottery service CI/CD pipeline
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - lottery/**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code of Lottery Service 👩‍💻
+        uses: actions/checkout@v2
+
+      - name: Setup .NET 5 ⚡
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.x'
+      
+      - name: Restore dependencies 🛠
+        working-directory: ./lottery/lottery-service
+        run: dotnet restore
+
+      - name: Build Lottery Service App 🚀
+        working-directory: ./lottery/lottery-service
+        run: dotnet build -c Release --no-restore
