@@ -1,4 +1,4 @@
-name: NewsAgency CI/CD pipeline
+name: NewsAgency - Paper service CI/CD pipeline
 
 on:
   push:
@@ -18,9 +18,9 @@ jobs:
            dotnet-version: '5.0.x'
       
       - name: Restore dependencies 🛠
-        working-directory: ./newsagency.api
+        working-directory: ./papers/paper-service
         run: dotnet restore
       
       - name: Build app 🚀
-        working-directory: ./newsagency.api      
+        working-directory: ./papers/paper-service      
         run: dotnet build -c Release --no-restore
