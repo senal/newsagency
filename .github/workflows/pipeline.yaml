@@ -18,7 +18,7 @@ jobs:
            dotnet-version: '5.0.x'
       
       - name: Change the Working Directory 🔀
-        working-directory: ./newsagency.api
+        run: cd ./newsagency.api
 
       - name: Restore dependencies 🛠
         run: dotnet restore
