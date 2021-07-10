@@ -13,6 +13,7 @@ namespace paper_service
     {
         public static void Main(string[] args)
         {
+            // host builder
             CreateHostBuilder(args).Build().Run();
         }
 
