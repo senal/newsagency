@@ -18,6 +18,7 @@ namespace grocery_service
     {
         public Startup(IConfiguration configuration)
         {
+            // Set configuration
             Configuration = configuration;
         }
 
