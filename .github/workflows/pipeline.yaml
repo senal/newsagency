@@ -16,6 +16,8 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
            dotnet-version: '5.0.x'
+      
+      - name: Change the Working Directory 🔀
         working-directory: ./newsagency.api
 
       - name: Restore dependencies 🛠
