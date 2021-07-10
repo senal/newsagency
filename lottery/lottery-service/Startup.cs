@@ -18,7 +18,6 @@ namespace lottery_service
     {
         public Startup(IConfiguration configuration)
         {
-            // Add comment to test pipeline trigger
             Configuration = configuration;
         }
 
