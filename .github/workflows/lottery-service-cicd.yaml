@@ -20,9 +20,9 @@ jobs:
           dotnet-version: '5.0.x'
       
       - name: Restore dependencies 🛠
-        working-directory: ./lottery/lottery-service
+        working-directory: ./lottery/LotteryService
         run: dotnet restore
 
       - name: Build Lottery Service App 🚀
-        working-directory: ./lottery/lottery-service
+        working-directory: ./lottery/LotteryService
         run: dotnet build -c Release --no-restore

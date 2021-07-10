@@ -20,9 +20,9 @@ jobs:
           dotnet-version: '5.0.x'
       
       - name: Restore dependencies 🛠
-        working-directory: ./grocery/grocery-service
+        working-directory: ./grocery/GroceryService
         run: dotnet restore
 
       - name: Build Grocery Service App 🚀
-        working-directory: ./grocery/grocery-service
+        working-directory: ./grocery/GroceryService
         run: dotnet build -c Release --no-restore
