@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code  🛎
-        uses: actions/checkout@2
+        uses: actions/checkout@v2
 
       - name: Setup .NET 5 ⚡
         uses: actions/setup-dotnet@v1
