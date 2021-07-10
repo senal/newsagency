@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace newsagency.api.Controllers
+namespace grocery_service.Controllers
 {
     [ApiController]
     [Route("[controller]")]

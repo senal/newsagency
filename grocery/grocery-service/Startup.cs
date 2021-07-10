@@ -12,7 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
-namespace newsagency.api
+namespace grocery_service
 {
     public class Startup
     {
@@ -30,7 +30,7 @@ namespace newsagency.api
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "newsagency.api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "grocery_service", Version = "v1" });
             });
         }
 
@@ -41,7 +41,7 @@ namespace newsagency.api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "newsagency.api v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "grocery_service v1"));
             }
 
             app.UseHttpsRedirection();

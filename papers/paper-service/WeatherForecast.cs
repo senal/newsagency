@@ -1,6 +1,6 @@
 using System;
 
-namespace newsagency.api
+namespace paper_service
 {
     public class WeatherForecast
     {
