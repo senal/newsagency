@@ -1,28 +1,28 @@
-name: NewsAgency - Paper service CI/CD pipeline
+name: NewsAgency - Grocery service CI/CD pipeline
 
 on:
   push:
     branches:
       - main
     paths:
-      - papers/**
+      - grocery/**
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code of Paper Service  👩‍💻
+      - name: Check out code of Grocery Service 👩‍💻
         uses: actions/checkout@v2
 
       - name: Setup .NET 5 ⚡
         uses: actions/setup-dotnet@v1
         with:
-           dotnet-version: '5.0.x'
+          dotnet-version: '5.0.x'
       
       - name: Restore dependencies 🛠
-        working-directory: ./papers/paper-service
+        working-directory: ./grocery/grocery-service
         run: dotnet restore
-      
-      - name: Build app 🚀
-        working-directory: ./papers/paper-service      
+
+      - name: Build Grocery Service App 🚀
+        working-directory: ./grocery/grocery-service
         run: dotnet build -c Release --no-restore
