@@ -1,3 +1,4 @@
+using System.Reflection;
 using System;
 using Xunit;
 
@@ -8,7 +9,7 @@ namespace PaperService.Tests
         [Fact]
         public void Test1()
         {
-
+            Assert.True(1 == 1);
         }
     }
 }
