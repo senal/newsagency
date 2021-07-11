@@ -30,5 +30,5 @@ jobs:
         run: dotnet build -c Release --no-restore
 
       - name: Run Automated Tests 🧪
-        working-directory: $${{ env.WORKING_DIR }}
+        working-directory: ${{ env.WORKING_DIR }}
         run: dotnet test -c Release --no-build
