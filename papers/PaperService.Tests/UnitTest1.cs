@@ -9,8 +9,7 @@ namespace PaperService.Tests
         [Fact]
         public void Test1()
         {
-            // Testing Emoji in code 😊
-            // ✅ Change to trigger piple line changes
+            // ✅ Just to test unit test build and run in the pipeline
             Assert.True(1 == 1);
         }
     }
