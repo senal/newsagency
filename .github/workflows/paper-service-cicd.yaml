@@ -27,5 +27,6 @@ jobs:
         working-directory: ./papers      
         run: dotnet build -c Release --no-restore
 
-      #- name: Run Automated Tests 🧪
-      #  working-directory: ./papers/PaperService  
+      - name: Run Automated Tests 🧪
+        working-directory: ./papers
+        run: dotnet test -c Release --no-build  
