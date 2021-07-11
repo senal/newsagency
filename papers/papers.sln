@@ -5,7 +5,7 @@ VisualStudioVersion = 16.6.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperService", "PaperService\PaperService.csproj", "{A0942493-3E85-4127-9F68-EAE0C17843C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperService.Tests", "PaperService.tests\PaperService.Tests.csproj", "{4C27D677-ED4A-4D8B-B600-2DF301E5B8BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperService.Tests", "PaperService.Tests\PaperService.Tests.csproj", "{4C27D677-ED4A-4D8B-B600-2DF301E5B8BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
