@@ -10,6 +10,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      WORKING_DIR: ./grocery
     steps:
       - name: Check out code of Grocery Service 👩‍💻
         uses: actions/checkout@v2
@@ -20,9 +22,13 @@ jobs:
           dotnet-version: '5.0.x'
       
       - name: Restore dependencies 🛠
-        working-directory: ./grocery/GroceryService
+        working-directory: ${{ env.WORKING_DIR }}
         run: dotnet restore
 
       - name: Build Grocery Service App 🚀
-        working-directory: ./grocery/GroceryService
+        working-directory: ${{ env.WORKING_DIR }}
         run: dotnet build -c Release --no-restore
+
+      - name: Run Automated Tests 🧪
+        working-directory: $${{ env.WORKING_DIR }}
+        run: dotnet test -c Release --no-build
