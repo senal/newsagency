@@ -9,6 +9,7 @@ namespace PaperService.Tests
         [Fact]
         public void Test1()
         {
+            // Testing Emoji in code 😊
             Assert.True(1 == 1);
         }
     }
