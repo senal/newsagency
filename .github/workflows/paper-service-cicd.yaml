@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       WORKING_DIR: ./papers
-      IMAGE_NAME: ranga/paperservice:$(date +%s)
+      IMAGE_NAME: ranga/paperservice:latest
     steps:
       - name: Checkout code ✅ 
         uses: actions/checkout@v2
