@@ -12,10 +12,16 @@ jobs:
     runs-on: ubuntu-latest
     env:
       WORKING_DIR: ./papers
+      IMAGE_NAME: ranga/paperservice:$(date +%s)
     steps:
       - name: Checkout code ✅ 
         uses: actions/checkout@v2
 
       - name: Build the docker image ✨
         working-directory: ${{ env.WORKING_DIR }}
-        run: docker build -t ranga/paperservice:$(date +%s) .  
+        run: docker build -t ${{ env.IMAGE_NAME }} .
+        
+      - name: Publish to Registry
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: ${{ env.IMAGE_NAME }}
