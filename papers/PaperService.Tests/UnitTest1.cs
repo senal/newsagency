@@ -10,7 +10,7 @@ namespace PaperService.Tests
         public void Test1()
         {
             // ✅ Just to test unit test build and run in the pipeline
-            Assert.True(1 == 2);
+            Assert.True(1 == 1);
         }
     }
 }
