@@ -18,4 +18,4 @@ jobs:
 
       - name: Build the docker image ✨
         working-directory: ${{ env.WORKING_DIR }}
-        run: docker builld -t ranga/paperservice:$(date +%s) .  
+        run: docker build -t ranga/paperservice:$(date +%s) .  
