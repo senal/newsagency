@@ -1,4 +1,4 @@
-name : NewsAgency - Paper service Docker CI/CD pipeline
+name: NewsAgency - Paper service CI/CD pipeline
 
 on:
   push:
@@ -32,11 +32,3 @@ jobs:
       - name: Run Automated Tests 🧪
         working-directory: ${{ env.WORKING_DIR }}
         run: dotnet test -c Release --no-build  
-      
-      #- name: Checkout code ✅ 
-      #  uses: actions/checkout@v2
-
-      #- name: Build the docker image ✨
-      #  working-directory: ${{ env.WORKING_DIR }}
-      #  run: docker builld -t ranga/paperservice:$(date +%s) .
-
