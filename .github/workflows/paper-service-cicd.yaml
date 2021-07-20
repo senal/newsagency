@@ -12,9 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       WORKING_DIR: ./papers
+      
     steps:
       - name: Checkout code ✅ 
         uses: actions/checkout@v2
-        
+
       - name: Build the docker image ✨
         run: docker builld -t ranga/paperservice:$(date +%s) .
