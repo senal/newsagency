@@ -12,18 +12,25 @@ jobs:
     runs-on: ubuntu-latest
     env:
       WORKING_DIR: ./papers
-      IMAGE_NAME: ranga/paperservice:latest
+      IMAGE_NAME: paperservice:latest
     steps:
       - name: Checkout code ✅ 
         uses: actions/checkout@v2
 
       - name: Build the docker image ✨
         working-directory: ${{ env.WORKING_DIR }}
-        run: docker build -t ${{ env.IMAGE_NAME }} .
-        
-      - name: Publish to Registry
-        uses: elgohr/Publish-Docker-Github-Action@master
+        #run: docker build -t ${{ env.IMAGE_NAME }} .
+        uses: docker/build-push-action@v1
         with:
-          name: ${{ env.IMAGE_NAME }}
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+            username: ${{ secrets.DOCKER_USERNAME }}
+            password: ${{ secrets.DOCKER_PASSWORD }}
+            dockerfile: Dockerfile
+            repository: ranga/newsagency
+            tag_with_ref: true
+        
+      #- name: Publish to Registry
+      #  uses: elgohr/Publish-Docker-Github-Action@master
+      # with:
+      #    name: ${{ env.IMAGE_NAME }}
+      #    username: ${{ secrets.DOCKER_USERNAME }}
+      #    password: ${{ secrets.DOCKER_PASSWORD }}

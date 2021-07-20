@@ -35,8 +35,6 @@ namespace PaperService.Controllers
             })
             .ToArray();
 
-
-
         }
     }
 }
