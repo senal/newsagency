@@ -13,22 +13,9 @@ jobs:
     env:
       WORKING_DIR: ./papers
     steps:
-      - name: Check out code of Paper Service  👩‍💻
+      - name: Checkout code ✅ 
         uses: actions/checkout@v2
 
-      - name: Setup .NET 5 ⚡
-        uses: actions/setup-dotnet@v1
-        with:
-           dotnet-version: '5.0.x'
-      
-      - name: Restore dependencies 🛠
+      - name: Build the docker image ✨
         working-directory: ${{ env.WORKING_DIR }}
-        run: dotnet restore
-      
-      - name: Build app 🚀
-        working-directory: ${{ env.WORKING_DIR }}      
-        run: dotnet build -c Release --no-restore
-
-      - name: Run Automated Tests 🧪
-        working-directory: ${{ env.WORKING_DIR }}
-        run: dotnet test -c Release --no-build  
+        run: docker builld -t ranga/paperservice:$(date +%s) .  
