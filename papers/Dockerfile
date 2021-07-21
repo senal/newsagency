@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine AS build-env
 WORKDIR /generator
 
 # restore
-COPY . ./
+COPY . .
 RUN dotnet restore
 
 # copy src
