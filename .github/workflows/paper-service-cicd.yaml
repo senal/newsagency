@@ -14,7 +14,7 @@ jobs:
       WORKING_DIR: ./papers
       IMAGE_NAME: paperservice:latest
 
-      steps:
+    steps:
       - name: Set up QEMU ✅ 
         uses: docker/setup-qemu-action@v1
 
