@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - main
-    #paths:
-    #  - papers/**
+    paths:
+      - papers/**
 
 jobs:
   build:
@@ -24,7 +24,7 @@ jobs:
           image: ranga/newsagency
           tag: v1, latest
           registry: docker.io
-          dockerfile: ./papers/Dockerfile
+          dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
