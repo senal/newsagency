@@ -24,6 +24,7 @@ jobs:
           image: ranga/newsagency
           tag: v1, latest
           registry: docker.io
+          dockerfile: ${{ env.IMAGE_NAME }}/Dickerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
