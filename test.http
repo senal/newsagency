@@ -1,5 +1,7 @@
 # when run on local
-GET https://localhost:5001/lottery
+#GET https://localhost:5001/lottery
 
 # when run on docker
-GET http://localhost:6000/lottery
+#GET http://localhost:6000/lottery
+
+GET https://localhost:5001/grocery
