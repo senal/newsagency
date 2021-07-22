@@ -32,7 +32,7 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: ./papers
+          context: ./lottery
           push: true
           tags: ranga/newsagency-lotteryservice:latest
 
