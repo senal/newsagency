@@ -35,8 +35,8 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Print Build version 
-        echo: ${{ steps.buildnumber.outputs.build_number }}
-        
+        run: echo ${{ steps.buildnumber.outputs.build_number }}
+
       - name: Build and pushed
         id: docker_build
         uses: docker/build-push-action@v2
