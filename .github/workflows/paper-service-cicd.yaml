@@ -41,7 +41,7 @@ jobs:
         with:
           context: ./papers
           push: true
-          tags: ranga/newsagency-paperservice:paper-service-${{ steps.buildnumber.outputs.build_number }}
+          tags: ranga/newsagency-paperservice:paper-service-$BUILD_NUMBER
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
