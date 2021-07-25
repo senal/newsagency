@@ -16,6 +16,7 @@ jobs:
 
     steps:
       - name: Generate Bild number
+        id: buildnumber
         uses: einaregilsson/build-number@v3
         with:
           token: ${{secrets.github_token}}
@@ -41,7 +42,7 @@ jobs:
         with:
           context: ./papers
           push: true
-          tags: ranga/newsagency-paperservice:paper-service-$BUILD_NUMBER
+          tags: ranga/newsagency-paperservice:paper-service-${{ steps.buildnumber.outputs.build_number }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
