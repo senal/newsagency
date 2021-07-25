@@ -13,6 +13,12 @@ jobs:
     env:
       WORKING_DIR: ./grocery
     steps:
+      - name: Generate Bild number
+        id: buildnumber
+        uses: einaregilsson/build-number@v3
+        with:
+          token: ${{secrets.github_token}}
+
       - name: Check out code of Grocery Service
         uses: actions/checkout@v2
 
@@ -34,7 +40,7 @@ jobs:
         with:
           context: ./grocery
           push: true
-          tags: ranga/newsagency-groceryservice:latest
+          tags: ranga/newsagency-groceryservice:grocery-service-${{ steps.buildnumber.outputs.build_number }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
