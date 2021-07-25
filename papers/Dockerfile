@@ -1,6 +1,6 @@
 #-------  Build stage -------------
 FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine AS build-env
-WORKDIR /generator
+WORKDIR /paper-service
 
 # restore
 COPY . .
