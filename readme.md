@@ -1,4 +1,4 @@
-## The 'News Agency' is a project that can be used as a playgound for DevOps practices around microservices   
+## The 'News Agency' is a project that can be used as a playground for DevOps and Implementation practices of microservices   
 ### Follwoing are the current statuses of the services
 
 [![NewsAgency - Grocery service CI/CD pipeline](https://github.com/senal/newsagency/actions/workflows/grocery-service-cicd.yaml/badge.svg)](https://github.com/senal/newsagency/actions/workflows/grocery-service-cicd.yaml)
