@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Dashboard = () => {
+const Index = () => {
     return (<div>Lottery module</div>)
 }
 
 
-export default Dashboard;
+export default Index;
