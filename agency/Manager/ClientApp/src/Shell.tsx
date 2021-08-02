@@ -1,4 +1,3 @@
-import { features } from 'process';
 import React from 'react';
 import {
     BrowserRouter as Router,
@@ -10,49 +9,46 @@ import {
 const ShellDashboard = React.lazy(() => import('./ShellDashboard'));
 
 // Components belong to Paper module 
-const PaperIndex = React.lazy(() => import('./features/papers/Index'));
+const PaperDashboard = React.lazy(() => import('./features/papers/Dashboard'));
 
 // Components belong to Grocery module
-const GroceryIndex = React.lazy(() => import('./features/grocery/Index'));
+const GroceryDashboard = React.lazy(() => import('./features/grocery/Dashboard'));
 
 // Components belong to Lottery module
-const LotteryIndex = React.lazy(() => import('./features/lottery/Index'));
+const LotteryDashboard = React.lazy(() => import('./features/lottery/Dashboard'));
 
 const Shell = () => {
     return (
     <div className="container p-5">
-        <div className="row justify-content-sm-center">
+        <div className="row justify-content-center">
             <div className="col-sm-5">
                 <React.Suspense fallback={<span>Loading...</span>}>
                     <Router>
-                        <ol className="breadcrumb">
+                        <ul className="nav justify-content-center">
                             <NavLink
                                 to="/paper"
-                                className="breadcrumb-item"
-                                activeClassName="active"
+                                className="nav-link"
                              >
                              Paper       
                             </NavLink>
                             <NavLink
                                 to="/grocery"
-                                className="breadcrumb-item"
-                                activeClassName="active"
+                                className="nav-link active"
                              >
                              Grocery       
                             </NavLink>
                             <NavLink
                                 to="/lottery"
-                                className="breadcrumb-item"
-                                activeClassName="active"
+                                className="nav-link"
                              >
                              Lottery      
                             </NavLink>
-                        </ol>
+                        </ul>
                         <Switch>
                             <Route exact path="/" component={ShellDashboard} />
-                            <Route exact path="/paper" component={PaperIndex} />
-                            <Route exact path="/grocery" component={GroceryIndex} />
-                            <Route exact path="/lottery" component={LotteryIndex} />
+                            <Route exact path="/paper" component={PaperDashboard} />
+                            <Route exact path="/grocery" component={GroceryDashboard} />
+                            <Route exact path="/lottery" component={LotteryDashboard} />
                         </Switch>
                     </Router>
                 </React.Suspense>
