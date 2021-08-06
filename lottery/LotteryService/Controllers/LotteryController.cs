@@ -19,6 +19,7 @@ namespace LotteryService.Controllers
         public IActionResult Get()
         {
             return Ok("Hello from Lottery service");
+
             
             
         }
