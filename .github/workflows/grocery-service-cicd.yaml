@@ -33,9 +33,12 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Print the tag
+      - name: Set the tag into a veriable
         id: get_tag
-        run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
+        run: echo ::set-output name=VERSION::${GITHUB_REF#refs/*/}
+
+      - name: Print the tag
+        run: echo $VERSION
 
       - name: Build and pushed 🛠 📢
         id: docker_build
