@@ -20,7 +20,6 @@ namespace LotteryService.Controllers
         {
             return Ok("Hello from Lottery service");
             
-            
         }
     }
 }
