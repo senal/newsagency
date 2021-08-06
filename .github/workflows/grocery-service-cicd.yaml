@@ -42,7 +42,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./grocery # define the path to the Dockerfile
-          tags: ranga/newsagency-groceryservice:${GITHUB_REF#refs/tags}
+          tags: ranga/newsagency-groceryservice:${GITHUB_REF#refs/tags/}
           push: true
 
       - name: Image digest
