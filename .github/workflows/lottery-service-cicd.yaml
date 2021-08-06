@@ -19,7 +19,7 @@ jobs:
         with:
           token: ${{secrets.github_token}}
 
-      - name: Check out code of Lottery Service 👩‍💻
+      - name: Checkout code of Lottery Service ✅
         uses: actions/checkout@v2
 
       - name: Login to DockerHub 🔒
