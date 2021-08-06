@@ -41,7 +41,7 @@ jobs:
         with:
           context: ./papers # define the path to the Dockerfile
           push: true
-          tags: ranga/newsagency-paperservice:paper-service-${GITHUB_REF#refs/tags}
+          tags: ranga/newsagency-paperservice:${GITHUB_REF#refs/tags}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

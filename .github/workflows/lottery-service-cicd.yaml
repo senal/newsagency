@@ -39,7 +39,7 @@ jobs:
         with:
           context: ./lottery # define the path to the Dockerfile
           push: true
-          tags: ranga/newsagency-lotteryservice:lottery-service-${GITHUB_REF#refs/tags}
+          tags: ranga/newsagency-lotteryservice:${GITHUB_REF#refs/tags}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
