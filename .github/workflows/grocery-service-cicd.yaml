@@ -6,6 +6,8 @@ on:
       - main
     paths:
       - grocery/**
+    tags:
+      - 'v*'
 
 jobs:
   build:
@@ -37,7 +39,7 @@ jobs:
         with:
           context: ./grocery # define the path to the Dockerfile
           push: true
-          tags: ranga/newsagency-groceryservice:grocery-service-${{ steps.buildnumber.outputs.build_number }}
+          tags: ranga/newsagency-groceryservice:grocery-service-${GITHUB_REF#refs/tags}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

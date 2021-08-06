@@ -6,6 +6,8 @@ on:
       - main
     paths:
       - lottery/**
+    tags:
+      - 'v*'
 
 jobs:
   build:
@@ -37,7 +39,7 @@ jobs:
         with:
           context: ./lottery # define the path to the Dockerfile
           push: true
-          tags: ranga/newsagency-lotteryservice:lottery-service-${{ steps.buildnumber.outputs.build_number }}
+          tags: ranga/newsagency-lotteryservice:lottery-service-${GITHUB_REF#refs/tags}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
