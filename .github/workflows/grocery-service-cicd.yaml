@@ -34,22 +34,15 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Set the tag into a veriable
-        id: get_tag
-        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
-
-      - name: Print the tag
-        env:
-          RELEASE_VERSION: ${{ steps.get_tag.outputs.tag }}
-        run: |
-          echo $RELEASE_VERSION
-          echo ${{ steps.get_tag.outputs.tag }}
+        id: release_version
+        run: echo ::set-output name=RELEASE_VERSION::${GITHUB_REF#refs/*/}
 
       - name: Build and pushed 🛠 📢
         id: docker_build
         uses: docker/build-push-action@v2
         with:
           context: ./grocery # define the path to the Dockerfile
-          tags: ranga/newsagency-groceryservice:${GITHUB_REF#refs/tags/}
+          tags: ranga/newsagency-groceryservice:groceryservice-${{GITHUB_REF#refs/*/}} #${{ steps.release_version.outputs.RELEASE_VERSION }}
           push: true
 
       - name: Image digest
