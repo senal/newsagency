@@ -32,6 +32,10 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+      
+      - name: Set the tag into a veriable 🚦
+        id: release_version
+        run: echo ::set-output name=RELEASE_VERSION::${GITHUB_REF#refs/*/}
 
       - name: Build and pushed 🛠 📢
         id: docker_build
@@ -39,7 +43,7 @@ jobs:
         with:
           context: ./lottery # define the path to the Dockerfile
           push: true
-          tags: ranga/newsagency-lotteryservice:${GITHUB_REF#refs/tags}
+          tags: ranga/newsagency-lotteryservice:lotteryservice-${{ steps.release_version.outputs.RELEASE_VERSION }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
