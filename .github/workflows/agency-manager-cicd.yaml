@@ -1,0 +1,50 @@
+name: NewsAgency - Manager CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - agency/**
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      WORKING_DIR: ./agency
+    steps:
+      - name: Checkout code of Agency Manager ✅
+        uses: actions/checkout@v2
+      
+      - name: Setup Buildx 📐
+        uses: docker/setup-buildx-action@v1
+
+      - name: Loging to Docker hub 🔒
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_USERNAME }}
+
+      - name: Set the tag into a variable 🚦
+        id: release_version
+        run: echo ::set-output name=RELEASE_VERSION::${{GITHUB_REF#refs/*/}}
+
+      - name: Build and Push image
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: ./grocery # define the path the to Dockerfile
+          tags: ranga/newsagency-manager:manager-${{ steps.release_version.outputs.RELEASE_VERSION }}
+          push: true
+
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
+
+  deploy:
+  needs: build
+  runs-on: ubuntu-latest
+  steps:
+    - name: Testing second job
+      run: echo "Deploy Newsagency Manager step"
