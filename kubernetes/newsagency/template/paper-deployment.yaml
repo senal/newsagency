@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: paper-deployment
+spec:
+  selector:
+    matchLabels:
+      app: paperservice
+  template:
+    metadata:
+      labels:
+        app: paperservice
+    spec:
+      containers:
+        - image: !IMAGE! 
+          name: service
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: paper-service
+spec:
+  selector:
+    name: paperservice
+  ports:
+    - name: paperservice
+      protocol: TCP
+      port: 5000
+      targetPort: 5000
